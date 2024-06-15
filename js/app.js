@@ -6,6 +6,11 @@ function adicionar() {
     let nomeProduto = produto.split('-')[0];
     let valorUnitario = produto.split('R$')[1];
     let quantidade = document.getElementById('quantidade').value;
+
+    if (isNaN(quantidade) || quantidade <= 0) {
+        alert("Insira uma quantidade válida.");
+        return;
+    }
     let preco = quantidade * valorUnitario;
 
     let carrinho = document.getElementById('lista-produtos');
@@ -18,10 +23,7 @@ function adicionar() {
     campoTotal.textContent = `R$ ${totalGeral}`;
     document.getElementById('quantidade').value = 0;
 
-    if (isNaN(quantidade) || quantidade <= 0) {
-        alert("Insira uma quantidade válida.");
-        return;
-    }
+
 }
 
 function limpar() {
